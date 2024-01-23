@@ -14,8 +14,6 @@ public class AdventureEnemy : MonoBehaviour
     Animator animator;
     public GameObject shootPos;
     public GameObject projectile;
-    public GameObject hitEffect;
-    public GameObject explosionEffect;
     public LayerMask whatIsGround, whatIsPlayer;
 
     // Health
