@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
    // private LightshipNavMeshAgent agent;
     private NavMeshAgent agent;
     public GameObject projectile;
+    public GameObject shootPos;
     public GameObject hitEffect;
     public GameObject explosionEffect;
     public LayerMask whatIsGround, whatIsPlayer, whatIsBullet;
@@ -72,7 +73,7 @@ public class EnemyAI : MonoBehaviour
         {
             // Attack Code here
 
-            Rigidbody rb = Instantiate(projectile, transform.position + Vector3.up, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, shootPos.transform.position + Vector3.up, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 20f, ForceMode.Impulse);
 
             alreadyAttacked = true;

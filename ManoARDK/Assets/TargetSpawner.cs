@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TargetSpawner : MonoBehaviour
 {
@@ -11,12 +12,11 @@ public class TargetSpawner : MonoBehaviour
 
     private List<GameObject> targets = new List<GameObject>();
     private int currentRound = 1;
-    public GameObject targetsParent; // Parent object for the spawned targets
-    private Vector3 initialParentPosition; // Initial position of the parent object
+   
 
     private void Start()
     {
-        initialParentPosition = targetsParent.transform.position; // Store the initial position of the parent
+        
         SpawnTargets(initialTargetCount);
     }
 
@@ -26,21 +26,35 @@ public class TargetSpawner : MonoBehaviour
         {
             Vector3 spawnPosition = GetRandomSpawnPosition();
             GameObject target = Instantiate(targetPrefab, spawnPosition, Quaternion.identity);
-            targetsParent.transform.position = initialParentPosition;
-            target.transform.parent = targetsParent.transform; // Set the parent of the spawned target
             targets.Add(target);
+
+            AdventureEnemy enemy = target.GetComponent<AdventureEnemy>();
+            if (enemy != null)
+            {
+                enemy.OnEnemyDestroyed += DestroyTarget;
+            }
         }
+
+  
     }
 
     private Vector3 GetRandomSpawnPosition()
     {
-        float x = Random.Range(-randomPositionRange, randomPositionRange) + initialParentPosition.x;
-        float y = Random.Range(0, 1f) + initialParentPosition.y;
-        float z =  spawnOffset + initialParentPosition.z;
-        return new Vector3(x, y, z);
+        Vector3 randomPosition = Random.insideUnitSphere * randomPositionRange;
+        randomPosition += transform.position;
+        randomPosition.y = transform.position.y; // Keep the same y position as the spawner
+        randomPosition.y += spawnOffset; // Add the spawn offset
+
+        NavMeshHit navMeshHit;
+        if (NavMesh.SamplePosition(randomPosition, out navMeshHit, randomPositionRange, NavMesh.AllAreas))
+        {
+            return navMeshHit.position;
+        }
+
+        return transform.position; // Return the spawner position if no valid position found
     }
 
-    public void TargetHit(GameObject target)
+    private void DestroyTarget(GameObject target)
     {
         targets.Remove(target);
         Destroy(target);

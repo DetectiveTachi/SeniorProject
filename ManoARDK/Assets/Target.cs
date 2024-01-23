@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
-            targetSpawner.TargetHit(gameObject);
+            //targetSpawner.TargetHit(gameObject);
         }
     }
 }
