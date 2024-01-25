@@ -61,6 +61,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 916916c48a95fe74f9ee84db6d99901a,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 916916c48a95fe74f9ee84db6d99901a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 916916c48a95fe74f9ee84db6d99901a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 916916c48a95fe74f9ee84db6d99901a,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -765,8 +780,6 @@ MonoBehaviour:
   shootPos: {fileID: 5395865209060362119}
   projectile: {fileID: 4296690646611281121, guid: d5ba389c30e72ae4cbb081f0ad6abf87,
     type: 3}
-  hitEffect: {fileID: 0}
-  explosionEffect: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 128
@@ -776,10 +789,10 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   walkpoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 30
+  walkPointRange: 7
   timeBetweenAttacks: 2
-  sightRange: 15
-  attackRange: 8
+  sightRange: 7
+  attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!136 &5682101541595357

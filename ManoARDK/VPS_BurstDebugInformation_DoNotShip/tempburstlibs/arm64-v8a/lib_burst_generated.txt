@@ -16,6 +16,7 @@ Library: D:\GitHub\Senior Project\SeniorProject\ManoARDK\Temp\BurstOutput\tempbu
 --assembly-defines=Niantic.Lightship.AR;
 --assembly-defines=Niantic.Lightship.SharedAR;
 --assembly-defines=Niantic.Platform.Analytics.NATelemetry;
+--assembly-defines=PathCreator;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
 --assembly-defines=System.Data;
@@ -91,6 +92,7 @@ Library: D:\GitHub\Senior Project\SeniorProject\ManoARDK\Temp\BurstOutput\tempbu
 --assembly-defines=Niantic.Lightship.AR;
 --assembly-defines=Niantic.Lightship.SharedAR;
 --assembly-defines=Niantic.Platform.Analytics.NATelemetry;
+--assembly-defines=PathCreator;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
 --assembly-defines=System.Data;

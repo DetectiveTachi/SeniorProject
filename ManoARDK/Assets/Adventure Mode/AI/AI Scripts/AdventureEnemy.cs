@@ -107,7 +107,7 @@ public class AdventureEnemy : MonoBehaviour
     public void Shoot()
     {
         Rigidbody rb = Instantiate(projectile, shootPos.transform.position, shootPos.transform.rotation).GetComponent<Rigidbody>();
-        rb.AddForce(shootPos.transform.forward * 20f, ForceMode.Impulse);
+        rb.AddForce(shootPos.transform.forward * 10f, ForceMode.Impulse);
     }
 
 
